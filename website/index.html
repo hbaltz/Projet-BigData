@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Projet BigData</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./css/leaflet.css"/>
+    <link rel="stylesheet" href="./css/styles.css"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+     <div class="container">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+           <span class="sr-only">Toggle navigation</span>
+         </button>
+       </div>
+       <div id="navbar" class="navbar-collapse collapse">
+         <div class="navbar-form navbar-right">
+           <div class="form-group">
+           <button type="submit" name="locateMe" id="locateMe" class="btn btn-warning">Me localiser</button>
+           <button type="submit" name="removeMarker" id="removeMarker" class="btn btn-danger">Supprimer les marqueurs</button>
+         </div>
+       </div><!--/.navbar-collapse -->
+     </div>
+   </nav>
+    <div class="container">
+      <div class="starter-template">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/leaflet.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
