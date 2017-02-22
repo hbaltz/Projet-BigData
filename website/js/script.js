@@ -16,6 +16,9 @@ var mylat, mylon;
 // Marqueur
 var layerMarkers = [];
 
+// Cercle
+var circle = null;
+
 // Définiton des évenement au clique sur les boutons
 document.getElementById("removeMarker").addEventListener("click", removeMarker);
 document.getElementById("locateMe").addEventListener("click", locateMe);
@@ -34,10 +37,36 @@ function addMarker(lat, long, label) {
 }
 
 /**
+* Fonction qui ajoute un cercle à la carte prend en entrée
+* lat long : des coordonées
+* rads: le rayon
+*/
+function addCircle(lat, long, rads){
+  circle = L.circle([lat, long], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: rads
+  }).addTo(map);
+}
+
+/**
 * Fonction qui supprime tout els marqueurs de la carte
 */
 function removeMarker(event){
   removeLayer(layerMarkers);
+}
+
+/**
+* Supprime un layer
+*/
+function removeLayer(layerName) {
+  if (layerName !== undefined && layerName.length > 0) {
+    for (var i = 0; i < layerName.length; i++) {
+      layerName[i].remove();
+    }
+  }
+  if(circle != null) circle.remove();
 }
 
 /**
@@ -69,6 +98,7 @@ function locateMe(event) {
     console.log(position.coords.latitude, position.coords.longitude);
     setPosition(position.coords.latitude, position.coords.longitude);
     addMarker(position.coords.latitude, position.coords.longitude, "Me");
+    addCircle(position.coords.latitude, position.coords.longitude,500);
     mapSetView(position.coords.latitude, position.coords.longitude, 16);
   });
 }
@@ -80,5 +110,6 @@ map.on('click', function(e){
   console.log("lat : " + e.latlng["lat"] + ", lon : " + e.latlng["lng"]);
   setPosition(e.latlng["lat"], e.latlng["lng"]);
   addMarker(e.latlng["lat"], e.latlng["lng"], "Me");
+  addCircle(e.latlng["lat"], e.latlng["lng"],500);
   mapSetView(e.latlng["lat"], e.latlng["lng"], 16);
 });
