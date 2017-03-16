@@ -5,4 +5,4 @@ Pour représenter le lien entre les entreprises et les annonces nous nous sommes
 Soit nous représentons les liens d'une entreprise avec différentes annonces (pour des idées de recrutement)
 Soit les liens d'une annonces vers des entreprises qui pourraient répondre aux besoins exprimés dans l’annonce
 
-![Graphe](img/graphe.png)
+![Graphe](img/graphe.PNG)
